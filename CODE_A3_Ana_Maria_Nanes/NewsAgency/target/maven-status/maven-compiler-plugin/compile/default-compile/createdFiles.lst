@@ -1,0 +1,15 @@
+com\newsagency\communication\ClientHandler.class
+com\newsagency\communication\ServerThread.class
+com\newsagency\communication\WriterThread.class
+com\newsagency\SpringBootApp.class
+com\newsagency\presentation\WriterView.class
+com\newsagency\Loader.class
+com\newsagency\repositories\WriterRepository.class
+com\newsagency\repositories\ArticleRepository.class
+com\newsagency\entities\Article.class
+com\newsagency\entities\Writer.class
+com\newsagency\services\WriterService.class
+com\newsagency\presentation\ReaderView.class
+com\newsagency\presentation\HomePageView.class
+com\newsagency\communication\ReaderThread.class
+com\newsagency\services\ArticleService.class
