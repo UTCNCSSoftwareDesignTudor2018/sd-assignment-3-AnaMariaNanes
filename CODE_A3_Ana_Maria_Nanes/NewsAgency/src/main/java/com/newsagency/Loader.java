@@ -1,6 +1,9 @@
 package com.newsagency;
 
+import com.newsagency.controllers.HomePageController;
+import com.newsagency.entities.Article;
 import com.newsagency.entities.Writer;
+import com.newsagency.presentation.HomePageView;
 import com.newsagency.services.ArticleService;
 import com.newsagency.services.WriterService;
 import org.springframework.context.ApplicationListener;
@@ -20,11 +23,20 @@ public class Loader implements ApplicationListener<ContextRefreshedEvent>{
     @Inject
     private WriterService writerService;
 
+    @Inject
+    HomePageController homePageController;
+
+    @Inject
+    HomePageView homePageView;
+
 
     public void onApplicationEvent(ContextRefreshedEvent event) {
-       List<Writer> allWriters = new ArrayList<Writer>();
-       allWriters = writerService.getAll();
-       allWriters.stream().forEach(e -> System.out.println(e.getName()));
+       //List<Writer> allWriters = new ArrayList<Writer>();
+       //allWriters = writerService.getAll();
+       //allWriters.stream().forEach(e -> System.out.println(e.getName()));
+
+       homePageController.init(homePageView);
+
     }
 }
 

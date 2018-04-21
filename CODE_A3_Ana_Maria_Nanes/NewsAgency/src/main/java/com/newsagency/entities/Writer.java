@@ -3,6 +3,7 @@ package com.newsagency.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name = "writers")
@@ -29,11 +30,11 @@ public class Writer {
 
     public Writer(){}
 
-    public Writer(String name, String username, String password, int popularity) {
+    public Writer(String name, String username, String password ){
         this.name = name;
         this.username = username;
         this.password = password;
-        this.popularity = popularity;
+        this.popularity = new Random().nextInt(10) + 1;
         articles = new ArrayList<Article>();
     }
 

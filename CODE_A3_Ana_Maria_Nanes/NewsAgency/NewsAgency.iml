@@ -54,6 +54,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180130" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.0.0.RELEASE" level="project" />
