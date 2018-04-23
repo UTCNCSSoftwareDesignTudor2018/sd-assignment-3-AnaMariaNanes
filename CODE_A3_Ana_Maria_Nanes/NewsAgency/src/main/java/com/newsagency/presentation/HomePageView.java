@@ -13,6 +13,7 @@ public class HomePageView extends JFrame {
     private JButton btnNewWriter = new JButton("NEW WRITER ACCOUNT");
     private JButton btnWriter = new JButton("WRITER");
     private JButton btnReader = new JButton("READER");
+    private JButton btnAllWriters = new JButton("ALL WRITERS");
 
     private int totalClients =0;
 
@@ -40,6 +41,11 @@ public class HomePageView extends JFrame {
         btnReader.setBounds(332, 106, 119, 60);
         contentPane.add(btnReader);
 
+        btnAllWriters.setBounds(89, 193, 126, 25);
+        contentPane.add(btnAllWriters);
+
+
+
     }
 
     //add action listener
@@ -56,6 +62,11 @@ public class HomePageView extends JFrame {
     public void addNewWriterBtnListener(ActionListener al)
     {
         this.btnNewWriter.addActionListener(al);
+    }
+
+    public void addAllWritersListener(ActionListener al)
+    {
+        this.btnAllWriters.addActionListener(al);
     }
 
     public void addClient()

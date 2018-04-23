@@ -20,5 +20,4 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
     public void delete(Article article);
 
-    //public void deleteByArticleId(int id);
 }

@@ -6,6 +6,7 @@ import com.newsagency.repositories.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service()
@@ -42,6 +43,25 @@ public class ArticleService {
     public void delete(Article article)
     {
         articleRepository.delete(article);
+    }
+
+    public List<Article> getRelated(String title)
+    {
+        List<Article> foundArticles = new ArrayList<>();
+        List<Article> allArticles  = getAll();
+        String[] title_words = title.split(" ");
+        for(Article article: allArticles)
+        {
+            for(String str: title_words)
+            {
+                if(article.getTitle().toLowerCase().contains(str.toLowerCase()))
+                {
+                    foundArticles.add(article);
+                    break;
+                }
+            }
+        }
+        return foundArticles;
     }
 
 }

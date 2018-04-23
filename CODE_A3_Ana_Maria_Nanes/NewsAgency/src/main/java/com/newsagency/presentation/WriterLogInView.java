@@ -10,7 +10,7 @@ public class WriterLogInView extends JFrame {
     private JTextField username_field;
     private JPasswordField password_field;
 
-    private JButton btnBack = new JButton("BACk");
+    private JButton btnBack = new JButton("BACK");
     private JButton btnLogIn = new JButton("LOG IN");
 
     public WriterLogInView()

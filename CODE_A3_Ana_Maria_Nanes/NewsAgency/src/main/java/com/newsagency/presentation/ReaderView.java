@@ -1,27 +1,29 @@
 package com.newsagency.presentation;
 
 import com.newsagency.entities.Article;
+import com.newsagency.observer.Observer;
+import com.newsagency.resources.ArticleStorage;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.util.List;
 
-public class ReaderView extends JFrame {
+
+public class ReaderView extends JFrame implements Observer {
 
     private JPanel contentPane;
-    private JTextField title_field;
-    private JTextField author_field;
-    private JTextField abstract_field;
-    private JTextField body_field;
+    private JTextArea title_field;
+    private JTextArea author_field;
+    private JTextArea abstract_field;
+    private JTextArea body_field;
 
-    private JButton btnBack = new JButton("BACK");
     private JButton btnViewArticle = new JButton("CHOOSE ARTICLE");
-    private JButton btnAllAuthors = new JButton("All authors");
 
     private JList list;
     private DefaultListModel<String> listModel;
+
+    private ArticleStorage articleStorage;
 
     public ReaderView()
     {
@@ -31,9 +33,6 @@ public class ReaderView extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-
-        btnBack.setBounds(631, 515, 97, 25);
-        contentPane.add(btnBack);
 
         list = new JList();
         listModel = new DefaultListModel<>();
@@ -49,10 +48,10 @@ public class ReaderView extends JFrame {
         lblReadTheArticlr.setBounds(374, 13, 146, 37);
         contentPane.add(lblReadTheArticlr);
 
-        title_field = new JTextField();
+        title_field = new JTextArea();
         title_field.setBounds(426, 63, 116, 22);
+        title_field.setEditable(false);
         contentPane.add(title_field);
-        title_field.setColumns(10);
 
         JLabel lblNewLabel = new JLabel("Title: ");
         lblNewLabel.setBounds(350, 63, 56, 16);
@@ -62,39 +61,44 @@ public class ReaderView extends JFrame {
         lblAuthor.setBounds(350, 103, 56, 16);
         contentPane.add(lblAuthor);
 
-        author_field = new JTextField();
+        author_field = new JTextArea();
         author_field.setBounds(426, 100, 116, 22);
+        author_field.setEditable(false);
         contentPane.add(author_field);
-        author_field.setColumns(10);
 
         JLabel lblAbstract = new JLabel("Abstract:");
         lblAbstract.setBounds(350, 142, 56, 25);
         contentPane.add(lblAbstract);
 
-        abstract_field = new JTextField();
+        abstract_field = new JTextArea();
         abstract_field.setBounds(426, 143, 285, 55);
+        abstract_field.setEditable(false);
         contentPane.add(abstract_field);
-        abstract_field.setColumns(10);
 
-        body_field = new JTextField();
+        body_field = new JTextArea();
         body_field.setBounds(339, 210, 372, 210);
+        body_field.setEditable(false);
         contentPane.add(body_field);
-        body_field.setColumns(10);
+    }
 
-        btnAllAuthors.setBounds(31, 503, 159, 37);
-        contentPane.add(btnAllAuthors);
+    @Override
+    public void update(List<Article> allArticles)
+    {
+
+        listModel.removeAllElements();
+        initializeList(allArticles);
     }
 
     public void initializeList(List<Article> article) {
         for (Article art : article) {
             listModel.addElement(art.getTitle());
         }
-        list = new JList<>(listModel);
-
     }
 
     public void addTheList() {
 
+        //moved here
+        list = new JList<>(listModel);
         list.setBounds(36, 53, 272, 367);
         list.setVisible(true);
         contentPane.add(list);
@@ -122,18 +126,16 @@ public class ReaderView extends JFrame {
         this.btnViewArticle.addActionListener(al);
     }
 
-    public void addBackListener(ActionListener al)
-    {
-        this.btnBack.addActionListener(al);
-    }
-
-    public void addViewAuthorsListener(ActionListener al)
-    {
-        this.btnAllAuthors.addActionListener(al);
-    }
-
     public JList getList()
     {
         return this.list;
+    }
+
+    public ArticleStorage getArticleStorage() {
+        return articleStorage;
+    }
+
+    public void setArticleStorage(ArticleStorage articleStorage) {
+        this.articleStorage = articleStorage;
     }
 }

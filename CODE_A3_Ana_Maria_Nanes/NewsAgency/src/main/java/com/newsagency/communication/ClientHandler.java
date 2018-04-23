@@ -1,11 +1,10 @@
 package com.newsagency.communication;
 
 import com.newsagency.entities.Article;
-import com.newsagency.models.ArticleMapper;
+import com.newsagency.mappers.ArticleMapper;
 import com.newsagency.services.ArticleService;
 import org.json.JSONObject;
 
-import javax.inject.Inject;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

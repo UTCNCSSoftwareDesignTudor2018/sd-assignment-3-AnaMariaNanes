@@ -7,6 +7,7 @@ import com.newsagency.presentation.ReaderView;
 import com.newsagency.services.WriterService;
 import org.json.JSONObject;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -49,35 +50,45 @@ public class ReaderThread extends Thread{
             Object selectedArticle = readerView.getList().getSelectedValue();
             String articleTitle = (String) selectedArticle;
 
-            try {
+            if(selectedArticle == null)
+            {
+                JOptionPane.showMessageDialog(null,
+                        "No article has been chosen.",
+                        "ERROR OPENING THE ARTICLE",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
 
-                is = new ByteArrayInputStream(articleTitle.getBytes("UTF-8"));
-                readerBf = new BufferedReader(new InputStreamReader(is));
-                String line = readerBf.readLine();
+                try {
 
-                dis = new DataInputStream(socketClient.getInputStream());
-                out = new DataOutputStream(socketClient.getOutputStream());
-                out.writeUTF(line);   // send the name of the article
+                    is = new ByteArrayInputStream(articleTitle.getBytes("UTF-8"));
+                    readerBf = new BufferedReader(new InputStreamReader(is));
+                    String line = readerBf.readLine();
 
-                String serverArticle = dis.readUTF();
-                JSONObject jsonObject = new JSONObject(serverArticle);
-                Article receivedArticle;
+                    dis = new DataInputStream(socketClient.getInputStream());
+                    out = new DataOutputStream(socketClient.getOutputStream());
+                    out.writeUTF(line);   // send the name of the article
 
-                int articleid = jsonObject.getInt("articleid");
-                String title = jsonObject.getString("title");
-                String author_name = jsonObject.getString("author");
-                Writer author = writerService.getByName(author_name);
-                String articleAbstract = jsonObject.getString("articleAbstract");
-                String body = jsonObject.getString("body");
+                    String serverArticle = dis.readUTF();
+                    JSONObject jsonObject = new JSONObject(serverArticle);
+                    Article receivedArticle;
 
-                receivedArticle = new Article(title,articleAbstract,body,author);
-                receivedArticle.setArticleid(articleid);
+                    int articleid = jsonObject.getInt("articleid");
+                    String title = jsonObject.getString("title");
+                    String author_name = jsonObject.getString("author");
+                    Writer author = writerService.getByName(author_name);
+                    String articleAbstract = jsonObject.getString("articleAbstract");
+                    String body = jsonObject.getString("body");
 
-                readerView.setArticle(receivedArticle);
+                    receivedArticle = new Article(title, articleAbstract, body, author);
+                    receivedArticle.setArticleid(articleid);
+
+                    readerView.setArticle(receivedArticle);
 
 
-            } catch (IOException i) {
-                System.out.println(i);
+                } catch (IOException i) {
+                    System.out.println(i);
+                }
             }
         }
     }
