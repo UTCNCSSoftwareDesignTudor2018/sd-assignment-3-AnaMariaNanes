@@ -49,7 +49,6 @@ public class HomePageController {
 
     public void init(HomePageView homePageView)
     {
-        //start the server
         ServerThread serverThread = new ServerThread();
         serverThread.setArticleService(articleService);
         serverThread.start();
@@ -102,8 +101,6 @@ public class HomePageController {
 
     }
 
-    // ----------------------------- actions listeners for HomePageView
-
     class ReaderViewListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
@@ -152,8 +149,6 @@ public class HomePageController {
         }
     }
 
-    // --------------------------- actions listeners for WriterRegistrationView
-
     class RegisterListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Writer newWriter = writerRegistrationView.getInputWriter();
@@ -179,15 +174,12 @@ public class HomePageController {
         }
     }
 
-
     class BackFromRegistrationListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             writerRegistrationView.setVisible(false);
             homePageView.setVisible(true);
         }
     }
-
-    // --------------------------- actions listeners for WriterLogInView
 
     class BackFromLogInListener implements ActionListener {
           public void actionPerformed(ActionEvent e)
@@ -241,16 +233,12 @@ public class HomePageController {
         }
     }
 
-    // ------------------------------------------- action listeners for ReaderView
     class ViewArticleListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e) {
 
         }
     }
-
-    // --------------------------------------------- action listeners for WriterView
-
 
     class CreateArticleListener implements ActionListener
     {
@@ -371,16 +359,12 @@ public class HomePageController {
         }
     }
 
-            // ------------------------------------------ action listeners for AllWritersView
-
     class BackFromAllWritersListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             allWritersView.setVisible(false);
             homePageView.setVisible(true);
         }
     }
-
-        // --------------------------------------------- action listener for ReadArticleView
 
     class BackFromReadArticleListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -391,9 +375,6 @@ public class HomePageController {
         }
     }
 
-    // --------------------------------------------- action listener for EditArticleView
-
-
     class BackFromEditArticleListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
                     editArticleView.setVisible(false);
@@ -403,19 +384,34 @@ public class HomePageController {
 
     class UpdateArticleListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-                Article newArticle = editArticleView.getArticleChosen();
+                try {
+                    Article newArticle = editArticleView.getArticleChosen();
 
-                articleService.insert(newArticle);
-                editArticleView.clear();
-                articleStorage.notifyObservers();
+                    if (newArticle.getTitle().equals("") || newArticle.getArticleAbstract().equals("") || newArticle.getBody().equals("")) {
 
-                JOptionPane.showMessageDialog(null,
+                        JOptionPane.showMessageDialog(null,
+                                "Invalid article input data.",
+                                "UPDATE ARTICLE ERRROR ",
+                                JOptionPane.ERROR_MESSAGE);
+                    } else
+                    {
+                    articleService.insert(newArticle);
+                    editArticleView.clear();
+                    articleStorage.notifyObservers();
+
+                    JOptionPane.showMessageDialog(null,
                             "The article has been updated.",
                             "UPDATE ARTICLE ",
                             JOptionPane.INFORMATION_MESSAGE);
-
-
-
+                     }
+                }
+                catch(Exception ee)
+                {
+                    JOptionPane.showMessageDialog(null,
+                            ee.getMessage(),
+                            "UPDATE ARTICLE ",
+                            JOptionPane.ERROR_MESSAGE);
+                }
         }
     }
 
@@ -470,6 +466,4 @@ public class HomePageController {
             }
         }
     }
-
-
 }

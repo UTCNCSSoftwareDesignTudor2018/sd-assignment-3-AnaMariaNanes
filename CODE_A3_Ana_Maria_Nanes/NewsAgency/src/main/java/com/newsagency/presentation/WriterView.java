@@ -27,7 +27,6 @@ public class WriterView extends JFrame {
     private JList list;
     private DefaultListModel<String> listModel;
 
-
     private Writer writerModel;
 
     public WriterView()

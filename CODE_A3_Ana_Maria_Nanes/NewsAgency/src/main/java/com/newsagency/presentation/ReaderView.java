@@ -120,7 +120,6 @@ public class ReaderView extends JFrame implements Observer {
         body_field.setText(article.getBody());
     }
 
-    //add action listeners
     public void addViewArticleListener(ActionListener al)
     {
         this.btnViewArticle.addActionListener(al);

@@ -48,8 +48,6 @@ public class WriterLogInView extends JFrame {
         contentPane.add(btnLogIn);
     }
 
-    //add action listeners
-
     public void addLogInListener(ActionListener al)
     {
         this.btnLogIn.addActionListener(al);
@@ -59,9 +57,6 @@ public class WriterLogInView extends JFrame {
     {
         this.btnBack.addActionListener(al);
     }
-
-
-    //get user input
 
     public String getUsername()
     {

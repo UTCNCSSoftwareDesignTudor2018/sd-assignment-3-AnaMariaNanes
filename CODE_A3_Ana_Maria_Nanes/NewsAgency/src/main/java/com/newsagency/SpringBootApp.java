@@ -29,11 +29,7 @@ public class SpringBootApp {
     }
 
     @Bean
-    public WriterValidator createWriterValidator()
-    {
-
-        return new WriterValidator();
-    }
+    public WriterValidator createWriterValidator() { return new WriterValidator(); }
 
     @Bean
     public ArticleStorage createArticleStorage()
@@ -42,8 +38,5 @@ public class SpringBootApp {
     }
 
     @Bean
-    public ArticleValidator createArticleValidator()
-    {
-        return new ArticleValidator();
-    }
+    public ArticleValidator createArticleValidator() { return new ArticleValidator(); }
 }

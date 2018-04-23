@@ -67,7 +67,7 @@ public class ReaderThread extends Thread{
 
                     dis = new DataInputStream(socketClient.getInputStream());
                     out = new DataOutputStream(socketClient.getOutputStream());
-                    out.writeUTF(line);   // send the name of the article
+                    out.writeUTF(line);
 
                     String serverArticle = dis.readUTF();
                     JSONObject jsonObject = new JSONObject(serverArticle);

@@ -44,11 +44,8 @@ public class HomePageView extends JFrame {
         btnAllWriters.setBounds(89, 193, 126, 25);
         contentPane.add(btnAllWriters);
 
-
-
     }
 
-    //add action listener
     public void addWriterBtnListener(ActionListener al)
     {
         this.btnWriter.addActionListener(al);

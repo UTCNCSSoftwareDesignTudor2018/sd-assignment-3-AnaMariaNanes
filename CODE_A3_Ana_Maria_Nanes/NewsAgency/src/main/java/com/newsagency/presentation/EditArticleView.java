@@ -144,7 +144,7 @@ public class EditArticleView extends JFrame {
         body_area.setText("");
     }
 
-    public Article getArticleChosen()
+    public Article getArticleChosen() throws Exception
     {
         Article article;
         String title = title_field.getText();
@@ -152,6 +152,8 @@ public class EditArticleView extends JFrame {
         String body = body_area.getText();
 
         article = new Article(title,abstractArticle,body,writerModel);
+        if(articleModel == null)
+            throw new Exception("No article to update.");
         article.setArticleid(articleModel.getArticleid());
 
         return article;

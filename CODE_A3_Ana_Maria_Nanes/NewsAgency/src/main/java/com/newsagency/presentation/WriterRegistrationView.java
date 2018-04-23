@@ -77,7 +77,6 @@ public class WriterRegistrationView extends JFrame{
 
     }
 
-    // action listeners
     public void addBackListener(ActionListener al)
     {
             this.btnBack.addActionListener(al);

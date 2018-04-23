@@ -39,10 +39,8 @@ public class ClientHandler extends Thread {
                 Article article = articleService.getByTitle(received);
                 ArticleMapper articleMapper = new ArticleMapper(article);
 
-                // json serialization
                 JSONObject articleJson = new JSONObject(articleMapper);
                 out.writeUTF(articleJson.toString());
-
 
             } catch (IOException i) {
                 System.out.println(i);
@@ -50,7 +48,6 @@ public class ClientHandler extends Thread {
         }
         try {
             this.socket.close();
-            //view.dispose();
             this.in.close();
         }catch(IOException ee){
             ee.printStackTrace();

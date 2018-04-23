@@ -31,12 +31,7 @@ public class Loader implements ApplicationListener<ContextRefreshedEvent>{
 
 
     public void onApplicationEvent(ContextRefreshedEvent event) {
-       //List<Writer> allWriters = new ArrayList<Writer>();
-       //allWriters = writerService.getAll();
-       //allWriters.stream().forEach(e -> System.out.println(e.getName()));
-
        homePageController.init(homePageView);
-
     }
 }
 
