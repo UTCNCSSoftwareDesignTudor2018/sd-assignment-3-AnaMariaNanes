@@ -1,8 +1,8 @@
 package com.newsagency.presentation;
 
-import com.newsagency.entities.Article;
-import com.newsagency.observer.Observer;
-import com.newsagency.resources.ArticleStorage;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.observer.Observer;
+import com.newsagency.data.resources.ArticleStorage;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

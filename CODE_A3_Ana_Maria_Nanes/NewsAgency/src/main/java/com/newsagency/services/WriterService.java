@@ -1,7 +1,7 @@
 package com.newsagency.services;
 
-import com.newsagency.entities.Writer;
-import com.newsagency.repositories.WriterRepository;
+import com.newsagency.data.entities.Writer;
+import com.newsagency.data.repositories.WriterRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

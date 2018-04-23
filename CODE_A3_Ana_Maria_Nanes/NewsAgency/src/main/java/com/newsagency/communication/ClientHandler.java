@@ -1,7 +1,7 @@
 package com.newsagency.communication;
 
-import com.newsagency.entities.Article;
-import com.newsagency.mappers.ArticleMapper;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.mappers.ArticleMapper;
 import com.newsagency.services.ArticleService;
 import org.json.JSONObject;
 

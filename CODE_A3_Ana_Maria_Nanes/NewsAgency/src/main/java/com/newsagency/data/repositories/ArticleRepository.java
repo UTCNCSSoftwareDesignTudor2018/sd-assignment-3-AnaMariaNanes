@@ -1,7 +1,7 @@
-package com.newsagency.repositories;
+package com.newsagency.data.repositories;
 
-import com.newsagency.entities.Article;
-import com.newsagency.entities.Writer;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.entities.Writer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

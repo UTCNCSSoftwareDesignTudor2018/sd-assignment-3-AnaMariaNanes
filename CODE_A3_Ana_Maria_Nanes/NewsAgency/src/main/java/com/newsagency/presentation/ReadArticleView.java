@@ -1,6 +1,6 @@
 package com.newsagency.presentation;
 
-import com.newsagency.entities.Article;
+import com.newsagency.data.entities.Article;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

@@ -1,6 +1,6 @@
-package com.newsagency.validators;
+package com.newsagency.data.validators;
 
-import com.newsagency.entities.Writer;
+import com.newsagency.data.entities.Writer;
 import com.newsagency.services.WriterService;
 
 import javax.inject.Inject;

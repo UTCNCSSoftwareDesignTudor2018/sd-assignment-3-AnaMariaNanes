@@ -1,6 +1,6 @@
-package com.newsagency.observer;
+package com.newsagency.data.observer;
 
-import com.newsagency.entities.Article;
+import com.newsagency.data.entities.Article;
 
 import java.util.List;
 

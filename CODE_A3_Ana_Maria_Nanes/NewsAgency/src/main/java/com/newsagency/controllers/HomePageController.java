@@ -1,13 +1,13 @@
 package com.newsagency.controllers;
 
-import com.newsagency.validators.ArticleValidator;
-import com.newsagency.validators.WriterValidator;
+import com.newsagency.data.validators.ArticleValidator;
+import com.newsagency.data.validators.WriterValidator;
 import com.newsagency.communication.ReaderThread;
 import com.newsagency.communication.ServerThread;
-import com.newsagency.entities.Article;
-import com.newsagency.entities.Writer;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.entities.Writer;
 import com.newsagency.presentation.*;
-import com.newsagency.resources.ArticleStorage;
+import com.newsagency.data.resources.ArticleStorage;
 import com.newsagency.services.ArticleService;
 import com.newsagency.services.WriterService;
 import org.springframework.stereotype.Component;

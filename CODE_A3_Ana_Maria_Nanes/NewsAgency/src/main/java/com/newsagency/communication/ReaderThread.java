@@ -1,7 +1,7 @@
 package com.newsagency.communication;
 
-import com.newsagency.entities.Article;
-import com.newsagency.entities.Writer;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.entities.Writer;
 import com.newsagency.presentation.HomePageView;
 import com.newsagency.presentation.ReaderView;
 import com.newsagency.services.WriterService;

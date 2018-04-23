@@ -1,4 +1,4 @@
-package com.newsagency.observer;
+package com.newsagency.data.observer;
 
 public interface Observable
 {

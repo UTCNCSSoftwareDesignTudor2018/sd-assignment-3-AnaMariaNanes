@@ -1,4 +1,4 @@
-package com.newsagency.entities;
+package com.newsagency.data.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;

@@ -1,8 +1,8 @@
-package com.newsagency.resources;
+package com.newsagency.data.resources;
 
-import com.newsagency.entities.Article;
-import com.newsagency.observer.Observable;
-import com.newsagency.observer.Observer;
+import com.newsagency.data.entities.Article;
+import com.newsagency.data.observer.Observable;
+import com.newsagency.data.observer.Observer;
 import com.newsagency.services.ArticleService;
 import org.springframework.stereotype.Component;
 

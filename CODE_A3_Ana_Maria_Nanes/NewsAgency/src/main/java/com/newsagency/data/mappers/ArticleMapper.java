@@ -1,6 +1,6 @@
-package com.newsagency.mappers;
+package com.newsagency.data.mappers;
 
-import com.newsagency.entities.Article;
+import com.newsagency.data.entities.Article;
 
 public class ArticleMapper {
 

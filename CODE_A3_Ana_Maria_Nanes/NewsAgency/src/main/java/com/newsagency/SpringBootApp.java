@@ -1,10 +1,10 @@
 package com.newsagency;
 
 import com.newsagency.controllers.HomePageController;
+import com.newsagency.data.resources.ArticleStorage;
+import com.newsagency.data.validators.ArticleValidator;
+import com.newsagency.data.validators.WriterValidator;
 import com.newsagency.presentation.HomePageView;
-import com.newsagency.resources.ArticleStorage;
-import com.newsagency.validators.ArticleValidator;
-import com.newsagency.validators.WriterValidator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.newsagency.entities;
+package com.newsagency.data.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
